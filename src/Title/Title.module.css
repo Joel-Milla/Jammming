@@ -1,0 +1,17 @@
+.container {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 100vw;
+    background-color: #000;
+}
+
+.title {
+    font-weight: 500;
+    color: #1DB954;
+}
+
+.highlight {
+    font-weight: 600;
+    /* color: #1CA048; */
+    color: #fff;
+}
