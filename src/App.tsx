@@ -1,9 +1,11 @@
-import './App.css';
+// External css
+import 'bootstrap-icons/font/bootstrap-icons.css';
+// Components
 import Title from './Title/Title';
 import SearchBar from './SearchBar/SearchBar';
 import Results from './Results/Results';
-// Import bootstrap icons
-import 'bootstrap-icons/font/bootstrap-icons.css';
+// Own styles
+import './App.css';
 
 function App() {
 

@@ -1,3 +1,4 @@
+// Own styles
 import styles from './Title.module.css'
 
 function Title() {

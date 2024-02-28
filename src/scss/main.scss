@@ -1,6 +1,6 @@
-// Change primary color to green
+// Change primary color to green by overwriting the scss of bootstrap primary colors
 
-// Import variable overrides
+// Import variable overrides that contain the color to change
 @import "./abstracts/variables";
 
 // Import Bootstrap SCSS for customization

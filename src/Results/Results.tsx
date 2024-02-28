@@ -1,7 +1,9 @@
+// External libraries
+import ListGroup from 'react-bootstrap/ListGroup';
+// Components
 import songs from './mockData';
 import styles from "./Results.module.css";
 import Card from "./Card";
-import ListGroup from 'react-bootstrap/ListGroup';
 
 function Results() {
     return (

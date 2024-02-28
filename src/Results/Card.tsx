@@ -1,4 +1,6 @@
+// External libraries
 import ListGroup from 'react-bootstrap/ListGroup';
+// Own styles
 import styles from "./Card.module.css"
 
 interface CartProps {
