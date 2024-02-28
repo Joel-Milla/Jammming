@@ -1,16 +1,15 @@
 import songs from './mockData';
 import styles from "./Results.module.css";
-import Cart from "./Cart";
+import Card from "./Card";
+import ListGroup from 'react-bootstrap/ListGroup';
 
 function Results() {
     return (
         <div className={`col ${styles.container_results}`}>
-            <h2 className={styles.title}>Results</h2>
-            <div className='row'>
-                <ul className={styles.list}>
-                    {songs.map((song) => <Cart name={song.name} artist={song.artist} />)}
-                </ul>
-            </div>
+            <h2 className='mb-4'>Results</h2>
+            <ListGroup className='mb-4'>
+                {songs.map((song) => <Card name={song.name} artist={song.artist} />)}
+            </ListGroup>
         </div>
     )
 }
