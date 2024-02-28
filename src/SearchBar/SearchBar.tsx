@@ -9,7 +9,7 @@ import styles from './SearchBar.module.css'
 function SearchBar() {
     return (
         <>
-            <Form>
+            <Form className='mb-4'>
                 <Row className={styles.row_search}>
                 <Col xs="auto">
                     <Form.Control

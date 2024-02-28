@@ -4,8 +4,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Title from './Title/Title';
 import SearchBar from './SearchBar/SearchBar';
 import Results from './Results/Results';
-// Own styles
-import './App.css';
+import Songs from './Playlist/Songs'
 
 function App() {
 
@@ -16,7 +15,7 @@ function App() {
         <SearchBar />
         <div className='row gx-5'>
           <Results />
-          <Results />
+          <Songs />
         </div>
       </div>
     </>
