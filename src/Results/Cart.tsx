@@ -8,7 +8,7 @@ interface CartProps {
 function Cart({name, artist}: CartProps) {
     return (
         <>
-            <li>
+            <li className="mb-3">
                 <div className={`row ${styles.cart}`}>
                     <div className="col-10">
                         <div>
