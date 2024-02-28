@@ -2,7 +2,7 @@ import './App.css';
 import Title from './Title/Title';
 import SearchBar from './SearchBar/SearchBar';
 import Results from './Results/Results';
-// Import bootstrap files
+// Import bootstrap icons
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Title />
       <div className='container'>
         <SearchBar />
-        <div className='row'>
+        <div className='row gx-5'>
           <Results />
           <Results />
         </div>

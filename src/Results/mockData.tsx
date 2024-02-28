@@ -12,8 +12,8 @@ const SONGS = [
         artist: "John Travolta"
     },
     {
-        name: "come and get your love",
-        artist: "redbone"
+        name: "Come and get your love",
+        artist: "Redbone"
     },
     {
         name: "Hopelessly devoted to you", 
@@ -28,8 +28,8 @@ const SONGS = [
         artist: "John Travolta"
     },
     {
-        name: "come and get your love",
-        artist: "redbone"
+        name: "Come and get your love",
+        artist: "Redbone"
     },
     {
         name: "Hopelessly devoted to you", 
@@ -44,8 +44,8 @@ const SONGS = [
         artist: "John Travolta"
     },
     {
-        name: "come and get your love",
-        artist: "redbone"
+        name: "Come and get your love",
+        artist: "Redbone"
     },
     {
         name: "Hopelessly devoted to you", 
