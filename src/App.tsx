@@ -1,5 +1,6 @@
 import './App.css'
 import Title from './Title/Title'
+import SearchBar from './SearchBar/SearchBar'
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <Title />
       <div className='container'>
+        <SearchBar />
       </div>
     </>
   )
