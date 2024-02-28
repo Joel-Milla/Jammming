@@ -9,11 +9,12 @@ function SearchBar() {
     return (
         <>
             <Form>
-                <Row className={styles.row}>
+                <Row className={styles.row_search}>
                 <Col xs="auto">
                     <Form.Control
                     type="text"
                     placeholder="Search"
+                    className="mb-2"
                     />
                 </Col>
                 <Col xs="auto">
