@@ -1,25 +1,12 @@
-// External css
-import 'bootstrap-icons/font/bootstrap-icons.css';
-// Components
-import Title from './Title/Title';
-import SearchBar from './SearchBar/SearchBar';
-import Results from './Results/Results';
-import Songs from './Playlist/Songs'
+import Dashboard from './Dashboard/Dashboard'
 
 function App() {
 
   return (
     <>
-      <Title />
-      <div className='container'>
-        <SearchBar />
-        <div className='row gx-4'>
-          <Results />
-          <Songs />
-        </div>
-      </div>
+      <Dashboard />
     </>
   )
 }
 
-export default App
+export default App;

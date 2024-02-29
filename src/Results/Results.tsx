@@ -11,7 +11,10 @@ function Results() {
             <div className={styles.container_results}>
                 <h2 className='mb-4'>Results</h2>
                 <ListGroup className='mb-4'>
-                    {songs.map((song) => <Card name={song.name} artist={song.artist} />)}
+                    {songs.map((song, index) => 
+                    <Card name={song.name} 
+                        artist={song.artist}
+                        key={`${song.name}-${song.artist}-${index}`} />)}
                 </ListGroup>
             </div>
         </div>

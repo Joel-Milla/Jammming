@@ -1,6 +1,8 @@
 // External libraries
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+// External css
+import 'bootstrap-icons/font/bootstrap-icons.css';
 // Components
 import App from './App.tsx'
 // Own styles
