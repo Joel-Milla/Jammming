@@ -13,7 +13,7 @@ function App() {
       <Title />
       <div className='container'>
         <SearchBar />
-        <div className='row gx-5'>
+        <div className='row gx-4'>
           <Results />
           <Songs />
         </div>
