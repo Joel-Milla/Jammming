@@ -11,7 +11,13 @@ export interface TrackProperties {
     icon: string;
 }
 
-export interface ListProperties {
+export interface SearchResultsProperties {
     songs: Song[];
-    callbackFunction: (song: Song) => void;
+    trackAction: (song: Song) => void;
+}
+
+export interface PlaylistProperties {
+    songs: Song[];
+    trackAction: (song: Song) => void;
+    buttonAction: (playlistName: string) => void;
 }

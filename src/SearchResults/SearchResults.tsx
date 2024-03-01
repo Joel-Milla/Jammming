@@ -4,10 +4,10 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import styles from "./SearchResults.module.css";
 import Track from "../Track/Track";
 // Types
-import { ListProperties } from '../models'; 
+import { SearchResultsProperties } from '../models'; 
 
-function SearchResults(properties: ListProperties) {
-    const {songs, callbackFunction} = properties;
+function SearchResults(properties: SearchResultsProperties) {
+    const {songs, trackAction} = properties;
 
     return (
         <div className='col-12 col-md-7 mb-5'>
@@ -16,7 +16,7 @@ function SearchResults(properties: ListProperties) {
                 <ListGroup className='mb-4'>
                     {songs.map((song) => 
                     <Track song={song}
-                        callbackFunction={callbackFunction}
+                        callbackFunction={trackAction}
                         icon='bi-plus'
                         key={song.id} />)}
                 </ListGroup>

@@ -30,6 +30,12 @@ function Dashboard() {
     );
   }
 
+  const savePlaylist = (playlistName: string) => {
+    console.log(playlistName);
+    console.log(selectedSongs);
+    setSelectedSongs([]);
+  }
+
 
   const [resultSongs, setResultSongs] = useState<Song[]>(SONGS);
 
@@ -39,8 +45,8 @@ function Dashboard() {
       <div className='container'>
         <SearchBar />
         <div className='row gx-4'>
-          <SearchResults songs={resultSongs} callbackFunction={selectSong} />
-          <Playlist songs={selectedSongs} callbackFunction={removeSong} />
+          <SearchResults songs={resultSongs} trackAction={selectSong} />
+          <Playlist songs={selectedSongs} trackAction={removeSong} buttonAction={savePlaylist}/>
         </div>
       </div>
     </>
