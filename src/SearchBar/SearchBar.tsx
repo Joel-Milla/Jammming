@@ -19,7 +19,7 @@ function SearchBar() {
                     />
                 </Col>
                 <Col xs="auto">
-                    <Button type="submit">Submit</Button>
+                    <Button type="submit">Search</Button>
                 </Col>
                 </Row>
             </Form>

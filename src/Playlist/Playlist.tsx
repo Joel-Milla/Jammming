@@ -28,7 +28,7 @@ function Songs(properties: ListProperties) {
                     </ListGroup>
                     <div className="d-grid gap-2">
                         <Button variant="primary" type="submit" size='lg'>
-                        Submit
+                        Save to Spotify
                         </Button>
                     </div>
                 </Form>
