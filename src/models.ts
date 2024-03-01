@@ -3,9 +3,10 @@ export interface Song {
     artist: string;
 }
 
-export interface CardProperties {
+export interface TrackProperties {
     song: Song;
     callbackFunction: (song: Song) => void;
+    icon: string;
 }
 
 export interface ListProperties {

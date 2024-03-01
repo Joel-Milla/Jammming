@@ -1,12 +1,12 @@
 // External libraries
 import ListGroup from 'react-bootstrap/ListGroup';
 // Own styles
-import styles from "./SongCard.module.css"
+import styles from "./Track.module.css"
 // Types
-import { CardProperties } from '../models'; 
+import { TrackProperties } from '../models'; 
 
-function Card(properties: CardProperties) {
-    const {song, callbackFunction} = properties;
+function Card(properties: TrackProperties) {
+    const {song, callbackFunction, icon} = properties;
 
     const handleClick = () => {
         callbackFunction(song);
@@ -26,7 +26,7 @@ function Card(properties: CardProperties) {
                     aria-label="SelectSong"
                     className={styles.icon}
                     onClick={handleClick} >
-                    <i className="bi bi-dash-lg"></i>
+                    <i className={`bi ${icon}`}></i>
                 </button>
             </ListGroup.Item>
         </>

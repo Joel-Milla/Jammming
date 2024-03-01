@@ -3,8 +3,8 @@ import { useState } from 'react';
 // Components
 import Title from '../Title/Title';
 import SearchBar from '../SearchBar/SearchBar';
-import Results from '../Results/Results';
-import Songs from '../Playlist/Songs';
+import Results from '../SearchResults/SearchResults';
+import Songs from '../Playlist/Playlist';
 // Types
 import { Song } from '../models';
 

@@ -1,12 +1,12 @@
 // External libraries
 import ListGroup from 'react-bootstrap/ListGroup';
 // Components
-import styles from "./Results.module.css";
-import Card from "./Card";
+import styles from "./SearchResults.module.css";
+import Track from "../Track/Track";
 // Types
 import { ListProperties } from '../models'; 
 
-function Results(properties: ListProperties) {
+function SearchResults(properties: ListProperties) {
     const {songs, callbackFunction} = properties;
 
     return (
@@ -15,8 +15,9 @@ function Results(properties: ListProperties) {
                 <h2 className='mb-4'>Results</h2>
                 <ListGroup className='mb-4'>
                     {songs.map((song, index) => 
-                    <Card song={song}
+                    <Track song={song}
                         callbackFunction={callbackFunction}
+                        icon='bi-plus'
                         key={`${song.name}-${song.artist}-${index}`} />)}
                 </ListGroup>
             </div>
@@ -24,4 +25,4 @@ function Results(properties: ListProperties) {
     )
 }
 
-export default Results;
+export default SearchResults;
