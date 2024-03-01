@@ -20,7 +20,7 @@ function Card(properties: TrackProperties) {
                 action variant='light'>
                 <div className="ms-2 me-auto">
                     <div className="fw-bold">{song.name}</div>
-                    {song.artist}
+                    {song.artist} | {song.album}
                 </div>
                 <button
                     aria-label="SelectSong"
