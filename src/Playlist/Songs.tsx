@@ -3,11 +3,14 @@ import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 // Components
-import songs from './mockDataPlst';
 import styles from "./Songs.module.css";
 import Card from "./SongCard";
+// Types
+import { ListProperties } from '../models'; 
 
-function Songs() {
+function Songs(props: ListProperties) {
+    const {songs, callbackFunction} = props;
+
     return (
         <div className='col-12 col-md-5 mb-5'>
             <div className={`${styles.container_songs}`}>
