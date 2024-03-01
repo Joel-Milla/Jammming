@@ -4,7 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import styles from "./SearchResults.module.css";
 import Track from "../Track/Track";
 // Types
-import { SearchResultsProperties } from '../models'; 
+import { SearchResultsProperties } from '../Models/models'; 
 
 function SearchResults(properties: SearchResultsProperties) {
     const {songs, trackAction} = properties;

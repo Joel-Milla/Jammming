@@ -3,7 +3,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 // Own styles
 import styles from "./Track.module.css"
 // Types
-import { TrackProperties } from '../models'; 
+import { TrackProperties } from '../Models/models'; 
 
 function Card(properties: TrackProperties) {
     const {song, callbackFunction, icon} = properties;

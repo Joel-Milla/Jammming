@@ -6,7 +6,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 // Types
-import { Song } from '../models';
+import { Song } from '../Models/models';
 
 import SONGS from '../mockData';
 

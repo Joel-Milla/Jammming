@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 // Own style
 import styles from './SearchBar.module.css'
 // Types
-import { SearchProperties } from '../models';
+import { SearchProperties } from '../Models/models';
 
 function SearchBar(properties: SearchProperties) {
     const { searchFunction } = properties;

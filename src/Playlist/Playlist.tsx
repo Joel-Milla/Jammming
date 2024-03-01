@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import styles from "./Playlist.module.css";
 import Track from "../Track/Track";
 // Types
-import { PlaylistProperties } from '../models'; 
+import { PlaylistProperties } from '../Models/models'; 
 
 function Playlist(properties: PlaylistProperties) {
     const {songs, trackAction, buttonAction} = properties;
