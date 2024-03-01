@@ -5,6 +5,10 @@ export interface Song {
     album: string;
 }
 
+export interface SearchProperties {
+    searchFunction: (query: string) => void;
+}
+
 export interface TrackProperties {
     song: Song;
     callbackFunction: (song: Song) => void;

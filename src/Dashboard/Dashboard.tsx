@@ -11,6 +11,14 @@ import { Song } from '../models';
 import SONGS from '../mockData';
 
 function Dashboard() {
+  const [resultSongs, setResultSongs] = useState<Song[]>([]);
+  const searchSongs = (query: string) => {
+    const makeRequest = () => {
+      return (SONGS);
+    }
+    setResultSongs(makeRequest());
+  }
+
   const [selectedSongs, setSelectedSongs] = useState<Song[]>([]);
   const isSongSelected = (song: Song) => {
     return selectedSongs.some(selectedSong => selectedSong.name === song.name && selectedSong.artist === song.artist);
@@ -36,14 +44,11 @@ function Dashboard() {
     setSelectedSongs([]);
   }
 
-
-  const [resultSongs, setResultSongs] = useState<Song[]>(SONGS);
-
   return (
     <>
       <Title />
       <div className='container'>
-        <SearchBar />
+        <SearchBar searchFunction={searchSongs}/>
         <div className='row gx-4'>
           <SearchResults songs={resultSongs} trackAction={selectSong} />
           <Playlist songs={selectedSongs} trackAction={removeSong} buttonAction={savePlaylist}/>

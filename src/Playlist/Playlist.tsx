@@ -1,4 +1,5 @@
 // External libraries
+import { ChangeEvent, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
@@ -7,7 +8,6 @@ import styles from "./Playlist.module.css";
 import Track from "../Track/Track";
 // Types
 import { PlaylistProperties } from '../models'; 
-import { ChangeEvent, useState } from 'react';
 
 function Playlist(properties: PlaylistProperties) {
     const {songs, trackAction, buttonAction} = properties;
