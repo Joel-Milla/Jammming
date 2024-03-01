@@ -3,12 +3,12 @@ import { useState } from 'react';
 // Components
 import Title from '../Title/Title';
 import SearchBar from '../SearchBar/SearchBar';
-import Results from '../SearchResults/SearchResults';
-import Songs from '../Playlist/Playlist';
+import SearchResults from '../SearchResults/SearchResults';
+import Playlist from '../Playlist/Playlist';
 // Types
 import { Song } from '../models';
 
-import SONGS from './mockData';
+import SONGS from '../mockData';
 
 function Dashboard() {
     const [selectedSongs, setSelectedSongs] = useState<Song[]>([]);
@@ -27,7 +27,7 @@ function Dashboard() {
 
     const removeSong = (song: Song) => {
       setSelectedSongs( (prev) => 
-        prev.filter((selectedSong) => selectedSong.artist !== song.artist && selectSong.name !== song.name)
+        prev.filter((selectedSong) => selectedSong.artist !== song.artist && selectedSong.name !== song.name)
       );
   }
 
@@ -37,8 +37,8 @@ function Dashboard() {
       <div className='container'>
         <SearchBar />
         <div className='row gx-4'>
-          <Results songs={SONGS} callbackFunction={selectSong}/>
-          <Songs songs={selectedSongs} callbackFunction={removeSong}/>
+          <SearchResults songs={SONGS} callbackFunction={selectSong}/>
+          <Playlist songs={selectedSongs} callbackFunction={removeSong}/>
         </div>
       </div>
     </>

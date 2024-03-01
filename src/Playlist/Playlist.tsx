@@ -8,7 +8,7 @@ import Track from "../Track/Track";
 // Types
 import { ListProperties } from '../models'; 
 
-function Songs(properties: ListProperties) {
+function Playlist(properties: ListProperties) {
     const {songs, callbackFunction} = properties;
 
     return (
@@ -37,4 +37,4 @@ function Songs(properties: ListProperties) {
     )
 }
 
-export default Songs;
+export default Playlist;
