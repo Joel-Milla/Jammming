@@ -5,11 +5,6 @@ import styles from "./Card.module.css"
 // Types
 import { CardProperties } from '../models'; 
 
-interface CartProps {
-    name: String,
-    artist: String
-}
-
 function Card(properties: CardProperties) {
     const {song, callbackFunction} = properties;
 

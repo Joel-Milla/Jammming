@@ -13,14 +13,22 @@ import SONGS from './mockData';
 function Dashboard() {
     const [selectedSongs, setSelectedSongs] = useState<Song[]>([]);
 
+    const isSongSelected = (song: Song) => {
+      return selectedSongs.some(selectedSong => selectedSong.name === song.name && selectedSong.artist === song.artist);
+    }
+
     const selectSong = (song: Song) => {
+      if (!isSongSelected(song)) {
         setSelectedSongs( (prev) => {
-            return [song, ...prev];
-        })
+          return [song, ...prev];
+        });
+      }
     }
 
     const removeSong = (song: Song) => {
-      return selectedSongs.filter((selectedSong) => selectedSong.artist !== song.artist && selectSong.name !== song.name)
+      setSelectedSongs( (prev) => 
+        prev.filter((selectedSong) => selectedSong.artist !== song.artist && selectSong.name !== song.name)
+      );
   }
 
   return (

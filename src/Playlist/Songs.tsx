@@ -8,8 +8,8 @@ import Card from "./SongCard";
 // Types
 import { ListProperties } from '../models'; 
 
-function Songs(props: ListProperties) {
-    const {songs, callbackFunction} = props;
+function Songs(properties: ListProperties) {
+    const {songs, callbackFunction} = properties;
 
     return (
         <div className='col-12 col-md-5 mb-5'>
@@ -21,8 +21,8 @@ function Songs(props: ListProperties) {
                         className="mb-4"/>
                     <ListGroup className='mb-4'>
                         {songs.map((song, index) => 
-                        <Card name={song.name} 
-                            artist={song.artist}
+                        <Card song={song}
+                            callbackFunction={callbackFunction}
                             key={`${song.name}-${song.artist}-${index}`} />)}
                     </ListGroup>
                     <div className="d-grid gap-2">

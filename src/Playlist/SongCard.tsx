@@ -2,13 +2,16 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 // Own styles
 import styles from "./SongCard.module.css"
+// Types
+import { CardProperties } from '../models'; 
 
-interface CartProps {
-    name: String,
-    artist: String
-}
+function Card(properties: CardProperties) {
+    const {song, callbackFunction} = properties;
 
-function Card({ name, artist }: CartProps) {
+    const handleClick = () => {
+        callbackFunction(song);
+    }
+
     return (
         <>
             <ListGroup.Item
@@ -16,12 +19,13 @@ function Card({ name, artist }: CartProps) {
                 className={`d-flex  ${styles.listItem}`}
                 action variant='light'>
                 <div className="ms-2 me-auto">
-                    <div className="fw-bold">{name}</div>
-                    {artist}
+                    <div className="fw-bold">{song.name}</div>
+                    {song.artist}
                 </div>
                 <button
                     aria-label="SelectSong"
-                    className={styles.icon}>
+                    className={styles.icon}
+                    onClick={handleClick} >
                     <i className="bi bi-dash-lg"></i>
                 </button>
             </ListGroup.Item>
