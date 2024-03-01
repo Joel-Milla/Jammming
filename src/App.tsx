@@ -1,3 +1,4 @@
+// Components
 import Dashboard from './Dashboard/Dashboard'
 
 function App() {
