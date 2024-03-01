@@ -20,11 +20,11 @@ function Playlist(properties: ListProperties) {
                         placeholder="Name of Playlist"
                         className="mb-4"/>
                     <ListGroup className='mb-4'>
-                        {songs.map((song, index) => 
+                        {songs.map((song) => 
                         <Track song={song}
                             callbackFunction={callbackFunction}
                             icon='bi-dash-lg'
-                            key={`${song.name}-${song.artist}-${index}`} />)}
+                            key={song.id} />)}
                     </ListGroup>
                     <div className="d-grid gap-2">
                         <Button variant="primary" type="submit" size='lg'>

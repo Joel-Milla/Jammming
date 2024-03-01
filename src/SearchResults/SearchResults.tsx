@@ -14,11 +14,11 @@ function SearchResults(properties: ListProperties) {
             <div className={styles.container_results}>
                 <h2 className='mb-4'>Results</h2>
                 <ListGroup className='mb-4'>
-                    {songs.map((song, index) => 
+                    {songs.map((song) => 
                     <Track song={song}
                         callbackFunction={callbackFunction}
                         icon='bi-plus'
-                        key={`${song.name}-${song.artist}-${index}`} />)}
+                        key={song.id} />)}
                 </ListGroup>
             </div>
         </div>
