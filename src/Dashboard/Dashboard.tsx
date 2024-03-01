@@ -21,7 +21,7 @@ function Dashboard() {
 
   const [selectedSongs, setSelectedSongs] = useState<Song[]>([]);
   const isSongSelected = (song: Song) => {
-    return selectedSongs.some(selectedSong => selectedSong.name === song.name && selectedSong.artist === song.artist);
+    return selectedSongs.some(selectedSong => selectedSong.id === song.id);
   }
 
   const selectSong = (song: Song) => {
@@ -34,7 +34,7 @@ function Dashboard() {
 
   const removeSong = (song: Song) => {
     setSelectedSongs((prev) =>
-      prev.filter((selectedSong) => selectedSong.artist !== song.artist && selectedSong.name !== song.name)
+      prev.filter((selectedSong) => selectedSong.id !== song.id)
     );
   }
 
