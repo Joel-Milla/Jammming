@@ -20,36 +20,36 @@ const SONGS = [
         artist: "Olivia newton John"
     },
     {
-        name: "I dont want to miss a thing",
-        artist: "Aerosmith"
+        name: "Summer of 60",
+        artist: "Bryan Adams"
     },
     {
-        name: "Summer nights",
-        artist: "John Travolta"
+        name: "A Hard Day's Night",
+        artist: "The Beatles"
     },
     {
-        name: "Come and get your love",
-        artist: "Redbone"
+        name: "Hello, Goodbye",
+        artist: "The Beatles"
     },
     {
-        name: "Hopelessly devoted to you", 
-        artist: "Olivia newton John"
+        name: "Here comes the sun", 
+        artist: "The Beatles"
     },
     {
-        name: "I dont want to miss a thing",
-        artist: "Aerosmith"
+        name: "Ice Ice Baby",
+        artist: "Vanilla Ice"
     },
     {
-        name: "Summer nights",
-        artist: "John Travolta"
+        name: "Under Pressure",
+        artist: "Queen"
     },
     {
-        name: "Come and get your love",
-        artist: "Redbone"
+        name: "Night Fever",
+        artist: "BeeGees"
     },
     {
-        name: "Hopelessly devoted to you", 
-        artist: "Olivia newton John"
+        name: "Hotel California", 
+        artist: "Eagles"
     }
 ];
 
