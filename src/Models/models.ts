@@ -1,8 +1,9 @@
 export interface Song {
-    id: number;
+    id: string;
     name: string;
     artist: string;
     album: string;
+    uri: string;
 }
 
 export interface SearchProperties {

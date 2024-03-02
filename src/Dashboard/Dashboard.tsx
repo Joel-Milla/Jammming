@@ -5,6 +5,8 @@ import Title from '../Title/Title';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+// External functions
+import responseSongs from '../Fetch/FetchSongs';
 // Types
 import { Song } from '../Models/models';
 
@@ -12,11 +14,14 @@ import SONGS from '../mockData';
 
 function Dashboard() {
   const [resultSongs, setResultSongs] = useState<Song[]>([]);
-  const searchSongs = (query: string) => {
-    const makeRequest = () => {
-      return (SONGS);
+  const searchSongs = async (query: string) => {
+    try {
+      const response = await responseSongs(query);
+      setResultSongs(response);
+      console.log(resultSongs);
+    } catch (error) {
+      console.log('Error while fetching songs: ', error);
     }
-    setResultSongs(makeRequest());
   }
 
   const [selectedSongs, setSelectedSongs] = useState<Song[]>([]);
@@ -48,10 +53,10 @@ function Dashboard() {
     <>
       <Title />
       <div className='container'>
-        <SearchBar searchFunction={searchSongs}/>
+        <SearchBar searchFunction={searchSongs} />
         <div className='row gx-4'>
           <SearchResults songs={resultSongs} trackAction={selectSong} />
-          <Playlist songs={selectedSongs} trackAction={removeSong} buttonAction={savePlaylist}/>
+          <Playlist songs={selectedSongs} trackAction={removeSong} buttonAction={savePlaylist} />
         </div>
       </div>
     </>

@@ -32,7 +32,7 @@ function SearchBar(properties: SearchProperties) {
                     onChange={handleChange}
                     value={query}
                     type="text"
-                    placeholder="Search"
+                    placeholder="Search track"
                     className="mb-2"
                     />
                 </Col>
