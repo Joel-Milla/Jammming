@@ -2,7 +2,7 @@
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 
-function LoginIn() {
+function LogIn() {
     const generateRandomString = (length: number) => {
         let result = '';
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -44,4 +44,4 @@ function LoginIn() {
 }
 
 
-export default LoginIn;
+export default LogIn;

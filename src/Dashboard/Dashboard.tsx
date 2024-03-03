@@ -5,7 +5,7 @@ import Title from '../Title/Title';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
-import LoginIn from './LoginIn';
+import LogIn from '../LogIn/LogIn';
 // External functions
 import responseSongs from '../Fetch/FetchSongs';
 // Types
@@ -65,7 +65,7 @@ function Dashboard() {
       <>
         <Title />
         <div className='container'>
-          <LoginIn />
+          <LogIn />
         </div>
       </>
     )
