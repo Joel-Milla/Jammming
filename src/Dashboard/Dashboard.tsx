@@ -12,6 +12,10 @@ import responseSongs from '../Fetch/FetchSongs';
 import { Song } from '../Models/models';
 
 function Dashboard() {
+  const isTokenValid = () => {
+    const expiresAt = localStorage.getItem('expiresAt') || '0';
+    return Date.now() < Number(expiresAt);
+  }
   const [accessToken, setAccessToken] = useState('');
   useEffect(() => {
     const hash = window.location.hash;
@@ -23,6 +27,9 @@ function Dashboard() {
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('expiresAt', expiresAt.toString());
       setAccessToken(accessToken);
+
+      // Clear window URL
+      window.history.pushState(null, '', window.location.pathname);
     } else {
       const storedToken = localStorage.getItem('accessToken');
       const storedExpiresAt = localStorage.getItem('expiresAt') || '0';
@@ -52,6 +59,13 @@ function Dashboard() {
 
   const [resultSongs, setResultSongs] = useState<Song[]>([]);
   const searchSongs = async (query: string) => {
+    if (!isTokenValid()) {
+      alert('Access token has expired. Please log in again');
+      setAccessToken('');
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('expiresAt');
+      return;
+    }
     try {
       const response = await responseSongs(query, accessToken);
       setResultSongs(response);
@@ -80,6 +94,13 @@ function Dashboard() {
   }
 
   const savePlaylist = (playlistName: string) => {
+    if (!isTokenValid()) {
+      alert('Access token has expired. Please log in again');
+      setAccessToken('');
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('expiresAt');
+      return;
+    }
     console.log(playlistName);
     console.log(selectedSongs);
     setSelectedSongs([]);
