@@ -17,17 +17,43 @@ function Dashboard() {
     const hash = window.location.hash;
     const params = new URLSearchParams(hash.substring(1));
     const accessToken = params.get('access_token');
-    const stateMatch = params.get('state') === localStorage.getItem('stateKey');
-
-    if (typeof accessToken == 'string' && stateMatch) {
+    const expiresIn = params.get('expires_in') || '0';
+    if (accessToken) {
+      const expiresAt = Date.now() + parseInt(expiresIn, 10) * 1000;
+      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('expiresAt', expiresAt.toString());
       setAccessToken(accessToken);
+    } else {
+      const storedToken = localStorage.getItem('accessToken');
+      const storedExpiresAt = localStorage.getItem('expiresAt') || '0';
+      const isTokenExpired = Date.now() > parseInt(storedExpiresAt, 10);
+      
+      if (storedToken && !isTokenExpired) {
+        setAccessToken(storedToken);
+      }
     }
   }, []);
+
+  useEffect (() => {
+    if (accessToken) {
+      const expiresAt = Number(localStorage.getItem('expiresAt'));
+      const timeoutDuration = expiresAt - Date.now();
+
+      const timeout = setTimeout(() => {
+        alert('Access token has expired. Please log in again');
+        setAccessToken('');
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('expiresAt');
+      }, timeoutDuration > 0 ? 3600 : 0);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [accessToken]);
 
   const [resultSongs, setResultSongs] = useState<Song[]>([]);
   const searchSongs = async (query: string) => {
     try {
-      const response = await responseSongs(query);
+      const response = await responseSongs(query, accessToken);
       setResultSongs(response);
       console.log(resultSongs);
     } catch (error) {

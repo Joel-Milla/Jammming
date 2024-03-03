@@ -1,11 +1,9 @@
-// Helper functions
-import fetchAccessToken from "./FetchAccessToken";
 // Types
 import { Song } from "../Models/models";
 
-const responseSongs = async (query: string) => {
+const responseSongs = async (query: string, access_token: string) => {
     let songs: Song[] = [];
-    const response = await searchSong(query).then((response) => response);
+    const response = await searchSong(query, access_token).then((response) => response);
     response.tracks.items.forEach((item: any) => {
         const song: Song = {
             id: item.id,
@@ -19,14 +17,11 @@ const responseSongs = async (query: string) => {
     return songs;
 }
 
-const searchSong = async (query: string) => {
+const searchSong = async (query: string, access_token: string) => {
     // Endpoint to reach the API
     const url = 'https://api.spotify.com/v1';
     // Type of action that interacts with the API and necessary params
     const queryParams = '/search?q=' + query + '&type=track';
-    // Access token of API
-    const request_access = await fetchAccessToken().then((response) => { return response });
-    const access_token = request_access.access_token;
     // Final endpoint
     const endpoint = url + queryParams;
     // Request information

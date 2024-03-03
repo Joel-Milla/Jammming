@@ -21,8 +21,8 @@ function LogIn() {
         const redirect_uri = 'http://localhost:5173';
 
         const state = generateRandomString(16);
-        localStorage.setItem('stateKey', state);
         const scope = 'user-read-private playlist-modify-private';
+        localStorage.setItem('stateKey', state);
 
         let url = 'https://accounts.spotify.com/authorize';
         url += '?response_type=token';
