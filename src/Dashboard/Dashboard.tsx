@@ -1,18 +1,29 @@
 // External libaries
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // Components
 import Title from '../Title/Title';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import LoginIn from './LoginIn';
 // External functions
 import responseSongs from '../Fetch/FetchSongs';
 // Types
 import { Song } from '../Models/models';
 
-import SONGS from '../mockData';
-
 function Dashboard() {
+  const [accessToken, setAccessToken] = useState('');
+  useEffect( () => {
+    const hash = window.location.hash;
+    const params = new URLSearchParams(hash.substring(1));
+    const accessToken = params.get('access_token');
+    const stateMatch = params.get('state') === localStorage.getItem('stateKey');
+
+    if (typeof accessToken == 'string' && stateMatch) {
+      setAccessToken(accessToken);
+    }
+  }, []);
+
   const [resultSongs, setResultSongs] = useState<Song[]>([]);
   const searchSongs = async (query: string) => {
     try {
@@ -47,6 +58,17 @@ function Dashboard() {
     console.log(playlistName);
     console.log(selectedSongs);
     setSelectedSongs([]);
+  }
+
+  if (accessToken === '') {
+    return (
+      <>
+        <Title />
+        <div className='container'>
+          <LoginIn />
+        </div>
+      </>
+    )
   }
 
   return (
