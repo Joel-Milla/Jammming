@@ -13,13 +13,13 @@ import { Song } from '../Models/models';
 
 function Dashboard() {
   const [accessToken, setAccessToken] = useState('');
-  useEffect( () => {
+  useEffect(() => {
     const hash = window.location.hash;
     const params = new URLSearchParams(hash.substring(1));
     const accessToken = params.get('access_token');
     const expiresIn = params.get('expires_in') || '0';
     if (accessToken) {
-      const expiresAt = Date.now() + parseInt(expiresIn, 10) * 1000;
+      const expiresAt = Date.now() + Number(expiresIn) * 1000;
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('expiresAt', expiresAt.toString());
       setAccessToken(accessToken);
@@ -27,14 +27,14 @@ function Dashboard() {
       const storedToken = localStorage.getItem('accessToken');
       const storedExpiresAt = localStorage.getItem('expiresAt') || '0';
       const isTokenExpired = Date.now() > parseInt(storedExpiresAt, 10);
-      
+
       if (storedToken && !isTokenExpired) {
         setAccessToken(storedToken);
       }
     }
   }, []);
 
-  useEffect (() => {
+  useEffect(() => {
     if (accessToken) {
       const expiresAt = Number(localStorage.getItem('expiresAt'));
       const timeoutDuration = expiresAt - Date.now();
@@ -44,7 +44,7 @@ function Dashboard() {
         setAccessToken('');
         localStorage.removeItem('accessToken');
         localStorage.removeItem('expiresAt');
-      }, timeoutDuration > 0 ? 3600 : 0);
+      }, timeoutDuration > 0 ? timeoutDuration : 0);
 
       return () => clearTimeout(timeout);
     }
@@ -55,7 +55,6 @@ function Dashboard() {
     try {
       const response = await responseSongs(query, accessToken);
       setResultSongs(response);
-      console.log(resultSongs);
     } catch (error) {
       console.log('Error while fetching songs: ', error);
     }
@@ -86,7 +85,7 @@ function Dashboard() {
     setSelectedSongs([]);
   }
 
-  if (accessToken === '') {
+  if (!accessToken) {
     return (
       <>
         <Title />
@@ -95,20 +94,20 @@ function Dashboard() {
         </div>
       </>
     )
-  }
-
-  return (
-    <>
-      <Title />
-      <div className='container'>
-        <SearchBar searchFunction={searchSongs} />
-        <div className='row gx-4'>
-          <SearchResults songs={resultSongs} trackAction={selectSong} />
-          <Playlist songs={selectedSongs} trackAction={removeSong} buttonAction={savePlaylist} />
+  } else {
+    return (
+      <>
+        <Title />
+        <div className='container'>
+          <SearchBar searchFunction={searchSongs} />
+          <div className='row gx-4'>
+            <SearchResults songs={resultSongs} trackAction={selectSong} />
+            <Playlist songs={selectedSongs} trackAction={removeSong} buttonAction={savePlaylist} />
+          </div>
         </div>
-      </div>
-    </>
-  )
+      </>
+    )
+  }
 }
 
 export default Dashboard;
