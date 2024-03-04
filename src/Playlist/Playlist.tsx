@@ -7,10 +7,10 @@ import Button from 'react-bootstrap/Button';
 import styles from "./Playlist.module.css";
 import Track from "../Track/Track";
 // Types
-import { PlaylistProperties } from '../Models/models'; 
+import { PlaylistProperties } from '../Models/models';
 
 function Playlist(properties: PlaylistProperties) {
-    const {songs, trackAction, buttonAction} = properties;
+    const { songs, trackAction, buttonAction } = properties;
 
     const [playlistName, setPlaylistName] = useState('');
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -19,8 +19,14 @@ function Playlist(properties: PlaylistProperties) {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        buttonAction(playlistName);
-        setPlaylistName('');
+        if (playlistName && songs.length > 0){
+            buttonAction(playlistName);
+            setPlaylistName('');
+        } else if (songs.length == 0) {
+            alert('Please select a song.');
+        } else if (!playlistName) {
+            alert('Please input a valid playlist name.');
+        }
     }
 
     return (
@@ -32,17 +38,17 @@ function Playlist(properties: PlaylistProperties) {
                         value={playlistName}
                         type="text"
                         placeholder="Name of Playlist"
-                        className="mb-4"/>
+                        className="mb-4" />
                     <ListGroup className='mb-4'>
-                        {songs.map((song) => 
-                        <Track song={song}
-                            callbackFunction={trackAction}
-                            icon='bi-dash-lg'
-                            key={song.id} />)}
+                        {songs.map((song) =>
+                            <Track song={song}
+                                callbackFunction={trackAction}
+                                icon='bi-dash-lg'
+                                key={song.id} />)}
                     </ListGroup>
                     <div className="d-grid gap-2">
                         <Button variant="primary" type="submit" size='lg'>
-                        Save to Spotify
+                            Save to Spotify
                         </Button>
                     </div>
                 </Form>

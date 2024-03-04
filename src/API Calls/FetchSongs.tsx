@@ -31,12 +31,12 @@ const searchSong = async (query: string, access_token: string) => {
             'Authorization': `Bearer ${access_token}`
         }
     }
-
+    // Make request
     try {
         const response = await fetch(endpoint, request);
         if (response.ok) {
             const json = await response.json();
-            return json
+            return json;
         }
         throw new Error('Fetch failed!')
     } catch (error) {

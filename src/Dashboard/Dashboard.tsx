@@ -7,7 +7,8 @@ import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import LogIn from '../LogIn/LogIn';
 // External functions
-import responseSongs from '../Fetch/FetchSongs';
+import responseSongs from '../API Calls/FetchSongs';
+import createPlaylist from '../API Calls/CreatePlaylist';
 // Types
 import { Song } from '../Models/models';
 
@@ -101,9 +102,9 @@ function Dashboard() {
       localStorage.removeItem('expiresAt');
       return;
     }
-    console.log(playlistName);
-    console.log(selectedSongs);
+    createPlaylist(accessToken, playlistName, selectedSongs);
     setSelectedSongs([]);
+    alert('Playlist was created succesfully!');
   }
 
   if (!accessToken) {
