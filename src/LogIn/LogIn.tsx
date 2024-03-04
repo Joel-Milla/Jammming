@@ -18,7 +18,7 @@ function LogIn() {
     const handleClick = () => {
         // IDs for application
         const client_id = 'da44360f76c0420d91b54a9f7277d76e';
-        const redirect_uri = 'http://localhost:5173';
+        const redirect_uri = 'https://jammming-fe-project.netlify.app';
 
         const state = generateRandomString(16);
         const scope = 'user-read-private playlist-modify-private playlist-modify-public';
