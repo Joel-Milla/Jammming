@@ -17,7 +17,7 @@ function LogIn() {
 
     const handleClick = () => {
         // IDs for application
-        const client_id = 'a8d061cda90a4b31a37740b9eabe4c52';
+        const client_id = 'da44360f76c0420d91b54a9f7277d76e';
         const redirect_uri = 'http://localhost:5173';
 
         const state = generateRandomString(16);
