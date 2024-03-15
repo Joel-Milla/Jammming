@@ -1,4 +1,4 @@
-# Deloitee landing page
+# Jamming page
 This project is focused on developing a React application by applying learnings from a Web Development course. The project utilizes the React library to build a Spotify-integrated application that authenticates users via OAuth, facilitating access to their Spotify account. Users are able to search for songs, select their favorites, and create a custom playlist.
 
 ## Features
